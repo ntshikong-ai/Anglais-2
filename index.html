@@ -1,0 +1,2170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRÉPA EXCELLENTIA — ENGLISH TEST</title>
+
+<style>
+:root{
+  --navy:#071633;
+  --blue:#2563eb;
+  --violet:#7c3aed;
+  --green:#059669;
+  --red:#dc2626;
+  --orange:#ea580c;
+  --bg:#f4f7fb;
+  --white:#ffffff;
+  --text:#172033;
+  --muted:#64748b;
+  --border:#dbe3ef;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+header{
+  background:linear-gradient(135deg,#071633,#142b5c);
+  color:white;
+  padding:16px 20px;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 5px 20px rgba(0,0,0,.18);
+}
+
+.header-inner{
+  max-width:1000px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.brand{
+  font-weight:900;
+  font-size:15px;
+  letter-spacing:.5px;
+}
+
+.global-timer{
+  background:#fff;
+  color:#071633;
+  padding:9px 14px;
+  border-radius:10px;
+  font-weight:900;
+  min-width:80px;
+  text-align:center;
+}
+
+main{
+  max-width:1000px;
+  margin:25px auto;
+  padding:0 15px;
+}
+
+.card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:25px;
+  box-shadow:0 8px 30px rgba(7,22,51,.08);
+  margin-bottom:20px;
+}
+
+.hero{
+  text-align:center;
+  padding:45px 25px;
+}
+
+.hero h1{
+  margin:0 0 12px;
+  font-size:31px;
+}
+
+.hero p{
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.input{
+  width:100%;
+  padding:14px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  font-size:16px;
+  margin:12px 0 18px;
+  outline:none;
+}
+
+.input:focus{
+  border-color:var(--blue);
+}
+
+.btn{
+  border:none;
+  border-radius:11px;
+  padding:13px 20px;
+  font-size:15px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.primary{
+  background:linear-gradient(135deg,var(--blue),var(--violet));
+  color:#fff;
+}
+
+.secondary{
+  background:#e8eef8;
+  color:var(--navy);
+}
+
+.hidden{
+  display:none!important;
+}
+
+.badge{
+  display:inline-block;
+  padding:6px 11px;
+  border-radius:50px;
+  background:#eef2ff;
+  color:#4338ca;
+  font-size:12px;
+  font-weight:900;
+}
+
+.notice{
+  background:#fff7ed;
+  border:1px solid #fed7aa;
+  color:#9a3412;
+  padding:13px;
+  border-radius:11px;
+  margin:15px 0;
+  line-height:1.5;
+}
+
+.reading-title{
+  text-align:center;
+  font-size:27px;
+  margin:10px 0 18px;
+}
+
+.reading-timer{
+  text-align:center;
+  font-size:34px;
+  font-weight:900;
+  color:var(--violet);
+  margin:10px 0 18px;
+}
+
+.reading{
+  background:#fafcff;
+  border:1px solid var(--border);
+  border-radius:13px;
+  padding:20px;
+  line-height:1.8;
+  max-height:62vh;
+  overflow:auto;
+  white-space:pre-line;
+}
+
+.reading-actions{
+  margin-top:18px;
+  display:flex;
+  justify-content:center;
+}
+
+.meta{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.progress{
+  height:8px;
+  background:#e5e7eb;
+  border-radius:20px;
+  overflow:hidden;
+  margin:13px 0 22px;
+}
+
+.progress-bar{
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,var(--blue),var(--violet));
+  transition:.25s;
+}
+
+.question{
+  font-size:21px;
+  line-height:1.55;
+  margin:15px 0 20px;
+}
+
+.choice{
+  width:100%;
+  display:block;
+  text-align:left;
+  background:#fff;
+  border:1px solid var(--border);
+  padding:15px;
+  border-radius:12px;
+  margin:10px 0;
+  cursor:pointer;
+  font-size:16px;
+  transition:.15s;
+}
+
+.choice:hover{
+  border-color:var(--blue);
+  background:#f8fbff;
+}
+
+.choice.selected{
+  border:2px solid var(--blue);
+  background:#eff6ff;
+}
+
+.question-bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:20px;
+}
+
+.question-timer{
+  color:var(--red);
+  font-weight:900;
+  font-size:18px;
+}
+
+.result-title{
+  text-align:center;
+}
+
+.score{
+  text-align:center;
+  font-size:55px;
+  font-weight:900;
+  color:var(--blue);
+}
+
+.percentage{
+  text-align:center;
+  font-size:20px;
+  font-weight:800;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin:22px 0;
+}
+
+.stat{
+  background:#f8fafc;
+  border-radius:12px;
+  padding:16px;
+  text-align:center;
+}
+
+.stat strong{
+  display:block;
+  font-size:22px;
+  margin-top:5px;
+}
+
+.chapter{
+  margin:10px 0;
+  padding:13px;
+  border:1px solid var(--border);
+  border-radius:11px;
+}
+
+.error{
+  border-left:5px solid var(--red);
+  background:#fff7f7;
+  padding:15px;
+  margin:12px 0;
+  border-radius:8px;
+  line-height:1.6;
+}
+
+.correct-answer{
+  color:var(--green);
+  font-weight:800;
+}
+
+.wrong-answer{
+  color:var(--red);
+  font-weight:800;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  color:var(--muted);
+  font-size:14px;
+}
+
+@media(max-width:650px){
+
+  .hero h1{
+    font-size:24px;
+  }
+
+  .card{
+    padding:18px;
+  }
+
+  .question{
+    font-size:18px;
+  }
+
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+  .header-inner{
+    align-items:flex-start;
+  }
+
+  .brand{
+    font-size:12px;
+  }
+
+  .global-timer{
+    min-width:70px;
+    padding:8px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      PRÉPA EXCELLENTIA — ENGLISH • NATHAN
+    </div>
+
+    <div class="global-timer" id="globalTimer">
+      00:00
+    </div>
+  </div>
+</header>
+
+
+<main>
+
+<!-- HOME -->
+
+<section id="home" class="card hero">
+
+  <h1>ENGLISH MOCK EXAM — 100 QUESTIONS</h1>
+
+  <p>
+    <strong>PRÉPA EXCELLENTIA WANTANSHI</strong>
+  </p>
+
+  <p>
+    One correct answer per question.<br>
+    Choose A, B, C or D.
+  </p>
+
+  <input
+    id="candidateName"
+    class="input"
+    type="text"
+    placeholder="Enter your full name"
+  >
+
+  <div class="notice">
+    Before the reading comprehension questions, you have
+    <strong>15 minutes</strong> to read the text.
+    You may skip the reading period at any time and go directly
+    to the questions.
+  </div>
+
+  <button class="btn primary" onclick="startTest()">
+    START THE TEST
+  </button>
+
+</section>
+
+
+<!-- READING -->
+
+<section id="readingSection" class="card hidden">
+
+  <span class="badge">
+    READING COMPREHENSION
+  </span>
+
+  <h2 class="reading-title">
+    THE CITY THAT LEARNED TO LISTEN
+  </h2>
+
+  <div id="readingTimer" class="reading-timer">
+    15:00
+  </div>
+
+  <div class="reading">
+
+In the eastern part of a coastal country stood Bellhaven, a city that had once been famous for its factories. For decades, ships arrived every morning, workers crossed the old bridge before sunrise, and the sound of machines filled the streets. Then the factories gradually closed. Many young people left, shops disappeared, and the city began to look tired. Yet one small neighborhood refused to believe that decline was inevitable.
+
+The change began with a strange idea proposed by Mara, a retired architect. Instead of asking the government for a large new building, she suggested that residents should first learn to use the empty spaces they already had. An abandoned warehouse became a workshop. A neglected courtyard became a community garden. An unused railway platform became an open-air library. At first, many people laughed at the project. They believed that a garden or a library could not solve serious economic problems.
+
+Mara did not claim that it could. She simply argued that a city was more than its factories, roads and offices. It was also the collection of relationships that allowed people to trust one another. If those relationships became stronger, she believed, other changes would become possible.
+
+The most unusual part of the project was the weekly “listening evening”. Every Thursday, residents met in the old station. There was only one rule: during the first twenty minutes, nobody was allowed to offer a solution. People could describe a problem, tell a story or explain why something mattered to them, but they had to listen while others were speaking.
+
+At the beginning, the meetings were uncomfortable. A shopkeeper complained about noise from a nearby sports field. A nurse spoke about elderly residents who were afraid to walk home after sunset. Teenagers said that adults often called them irresponsible without asking what they actually wanted. Some residents were impatient because they preferred immediate decisions to long conversations.
+
+Gradually, however, the meetings changed the way people saw one another. The shopkeeper discovered that the teenagers were willing to organize evening activities if they were given responsibility. The nurse met a retired electrician who volunteered to improve the lighting around the station. A group of students offered to create a digital map showing safe walking routes. None of these ideas had appeared during the first meeting because people had been too busy defending their own opinions.
+
+The project also attracted visitors from other towns. Journalists came to photograph the garden and the library, but Mara insisted that the photographs missed the most important part. “A beautiful place is easy to photograph,” she said. “A new habit of listening is much harder to see.” She believed that the real transformation was invisible at first.
+
+Three years later, Bellhaven was not suddenly rich. Some buildings were still empty, and unemployment remained a serious issue. But something important had changed. Residents were starting businesses together, young people were participating in local decisions, and older inhabitants were teaching practical skills in the community workshop. The city had not discovered a magical solution; it had discovered a different way of facing problems.
+
+One winter, a severe storm damaged the old bridge. The authorities warned that repairs could take months. Instead of waiting passively, residents organized temporary transport, shared information online and helped people who lived far from the main road. The response surprised officials. The strength of the city was no longer measured only by its infrastructure. It could also be measured by how quickly people cooperated when infrastructure failed.
+
+Mara later wrote a short sentence on the wall of the old station:
+
+“A city becomes stronger when its people stop trying to be heard long enough to hear each other.”
+
+The sentence became a local motto. Visitors sometimes asked whether Bellhaven had become a model city. Residents usually smiled at the question. They knew that the work was unfinished.
+
+What had changed, they said, was not the city itself but the way they looked at it. An empty building could be seen as a failure or as a possibility. A difficult conversation could be seen as a waste of time or as the beginning of cooperation. A problem could be treated as someone else's responsibility or as a reason to build a relationship.
+
+Bellhaven's story therefore became less about rebuilding walls than about rebuilding attention. The residents had learned that progress did not always begin with money, technology or a spectacular plan. Sometimes it began with something much less impressive: sitting down, remaining silent for a few minutes, and listening carefully to a person whose experience was different from your own.
+
+  </div>
+
+  <div class="reading-actions">
+    <button class="btn primary" onclick="skipReading()">
+      SKIP TO QUESTIONS
+    </button>
+  </div>
+
+</section>
+
+
+<!-- QUIZ -->
+
+<section id="quizSection" class="card hidden">
+
+  <div class="meta">
+
+    <span id="chapterName">
+      Reading comprehension
+    </span>
+
+    <span id="questionNumber">
+      Question 1/100
+    </span>
+
+  </div>
+
+  <div class="progress">
+    <div id="progressBar" class="progress-bar"></div>
+  </div>
+
+  <div id="questionText" class="question"></div>
+
+  <div id="choices"></div>
+
+  <div class="question-bottom">
+
+    <div id="questionTimer" class="question-timer">
+      01:00
+    </div>
+
+    <button
+      id="nextButton"
+      class="btn primary"
+      onclick="nextQuestion()"
+    >
+      NEXT
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- RESULT -->
+
+<section id="resultSection" class="card hidden"></section>
+
+</main>
+
+
+<footer>
+  TEST BLANC ENGLISH — PRÉPA EXCELLENTIA • by Nathan
+</footer>
+
+
+<script>
+
+/* =========================================================
+   READING
+========================================================= */
+
+
+/* =========================================================
+   100 QUESTIONS
+========================================================= */
+
+const questions = [
+
+/* ================= READING 1-15 ================= */
+
+{
+chapter:"Reading comprehension",
+question:"Why had Bellhaven begun to look tired?",
+choices:[
+"Its airport had closed.",
+"Its factories had gradually closed and many young people had left.",
+"A war had destroyed the city.",
+"The sea had disappeared."
+],
+answer:1,
+explanation:"The factories gradually closed, many young people left, and shops disappeared."
+},
+
+{
+chapter:"Reading comprehension",
+question:"Who proposed the idea that started the neighborhood project?",
+choices:[
+"A nurse.",
+"A journalist.",
+"Mara, a retired architect.",
+"The mayor."
+],
+answer:2,
+explanation:"Mara, a retired architect, proposed the idea."
+},
+
+{
+chapter:"Reading comprehension",
+question:"What did the abandoned warehouse become?",
+choices:[
+"A museum.",
+"A workshop.",
+"A hospital.",
+"A restaurant."
+],
+answer:1,
+explanation:"The abandoned warehouse became a workshop."
+},
+
+{
+chapter:"Reading comprehension",
+question:"What was the main rule during the first twenty minutes of a listening evening?",
+choices:[
+"Nobody could speak.",
+"Nobody could offer a solution.",
+"Only teenagers could speak.",
+"People had to vote."
+],
+answer:1,
+explanation:"People could describe problems and stories, but they could not offer solutions during the first twenty minutes."
+},
+
+{
+chapter:"Reading comprehension",
+question:"Why were some residents impatient at first?",
+choices:[
+"They disliked the station.",
+"They wanted immediate decisions.",
+"They wanted to close the library.",
+"They did not understand English."
+],
+answer:1,
+explanation:"Some residents preferred immediate decisions to long conversations."
+},
+
+{
+chapter:"Reading comprehension",
+question:"What did the teenagers say about adults?",
+choices:[
+"Adults never listened to music.",
+"Adults often called them irresponsible without asking what they wanted.",
+"Adults gave them too much responsibility.",
+"Adults refused to use the sports field."
+],
+answer:1,
+explanation:"The teenagers complained that adults called them irresponsible without asking what they actually wanted."
+},
+
+{
+chapter:"Reading comprehension",
+question:"Who volunteered to improve the lighting around the station?",
+choices:[
+"A retired electrician.",
+"A journalist.",
+"A shopkeeper.",
+"A student."
+],
+answer:0,
+explanation:"A retired electrician volunteered to improve the lighting."
+},
+
+{
+chapter:"Reading comprehension",
+question:"Why did Mara think the journalists' photographs missed the most important part?",
+choices:[
+"The photographs were too dark.",
+"They did not show the new habit of listening.",
+"The journalists photographed the wrong city.",
+"They ignored the library."
+],
+answer:1,
+explanation:"Mara considered the new habit of listening the most important transformation."
+},
+
+{
+chapter:"Reading comprehension",
+question:"Three years later, what remained a serious issue?",
+choices:[
+"Unemployment.",
+"The lack of a railway.",
+"A shortage of schools.",
+"A lack of tourists."
+],
+answer:0,
+explanation:"The text explicitly says unemployment remained a serious issue."
+},
+
+{
+chapter:"Reading comprehension",
+question:"What happened to the old bridge one winter?",
+choices:[
+"It was sold.",
+"It was damaged by a severe storm.",
+"It was turned into a library.",
+"It was permanently closed by residents."
+],
+answer:1,
+explanation:"A severe storm damaged the old bridge."
+},
+
+{
+chapter:"Reading comprehension",
+question:"How did residents respond when the bridge was damaged?",
+choices:[
+"They left the city.",
+"They waited for years.",
+"They organized temporary transport and helped others.",
+"They blamed Mara."
+],
+answer:2,
+explanation:"Residents organized temporary transport, shared information and helped people."
+},
+
+{
+chapter:"Reading comprehension",
+question:"According to the text, how could the strength of the city be measured?",
+choices:[
+"Only by the number of factories.",
+"By how quickly people cooperated when infrastructure failed.",
+"By the height of its buildings.",
+"By the number of tourists."
+],
+answer:1,
+explanation:"The text says the city's strength could also be measured by cooperation."
+},
+
+{
+chapter:"Reading comprehension",
+question:"What became a local motto?",
+choices:[
+"Work before talking.",
+"A city becomes stronger when its people stop trying to be heard long enough to hear each other.",
+"Factories make cities strong.",
+"Never change an old building."
+],
+answer:1,
+explanation:"Mara wrote this sentence on the station wall, and it became a local motto."
+},
+
+{
+chapter:"Reading comprehension",
+question:"What had changed most in Bellhaven?",
+choices:[
+"The city's geography.",
+"The residents' way of looking at their city and its problems.",
+"The weather.",
+"The number of factories."
+],
+answer:1,
+explanation:"The conclusion says the residents' way of looking at the city had changed."
+},
+
+{
+chapter:"Reading comprehension",
+question:"What is the central message of the text?",
+choices:[
+"Economic problems are impossible to solve.",
+"Technology is always the best solution.",
+"Cooperation and careful listening can create meaningful social change.",
+"Old buildings should always be demolished."
+],
+answer:2,
+explanation:"The story emphasizes cooperation, listening and relationships as foundations for change."
+},
+
+
+/* ================= VERB TENSES 16-30 ================= */
+
+{
+chapter:"Verb tenses",
+question:"By the time we arrived, the meeting ___.",
+choices:["started","has started","had started","was start"],
+answer:2,
+explanation:"Past perfect describes an action completed before another past action."
+},
+
+{
+chapter:"Verb tenses",
+question:"She ___ in Kinshasa since 2022.",
+choices:["lives","has lived","lived","is live"],
+answer:1,
+explanation:"Present perfect is used with since when the situation continues to the present."
+},
+
+{
+chapter:"Verb tenses",
+question:"Listen! Someone ___ at the door.",
+choices:["knocks","knocked","is knocking","has knock"],
+answer:2,
+explanation:"The action is happening now, so present continuous is correct."
+},
+
+{
+chapter:"Verb tenses",
+question:"I ___ him yesterday at the market.",
+choices:["see","have seen","saw","am seeing"],
+answer:2,
+explanation:"Yesterday refers to a finished past time, so use the past simple."
+},
+
+{
+chapter:"Verb tenses",
+question:"This time next week, we ___ for the exam.",
+choices:["will study","will be studying","studied","have studied"],
+answer:1,
+explanation:"Future continuous describes an action in progress at a particular future time."
+},
+
+{
+chapter:"Verb tenses",
+question:"By next June, she ___ the course.",
+choices:["finishes","finished","will have finished","has finished"],
+answer:2,
+explanation:"Future perfect describes an action completed before a future deadline."
+},
+
+{
+chapter:"Verb tenses",
+question:"He usually ___ coffee in the morning.",
+choices:["drink","drinks","is drinking","drank"],
+answer:1,
+explanation:"With he/she/it in the present simple, the verb takes -s."
+},
+
+{
+chapter:"Verb tenses",
+question:"While I ___, the phone rang.",
+choices:["slept","was sleeping","have slept","sleep"],
+answer:1,
+explanation:"Past continuous describes the ongoing background action."
+},
+
+{
+chapter:"Verb tenses",
+question:"They ___ the project yet.",
+choices:["didn't finish","haven't finished","don't finished","weren't finish"],
+answer:1,
+explanation:"Yet commonly occurs with the present perfect in this structure."
+},
+
+{
+chapter:"Verb tenses",
+question:"When I was a child, I ___ near the river.",
+choices:["used to live","am living","have lived","will live"],
+answer:0,
+explanation:"Used to describes a past state or habit that is no longer true."
+},
+
+{
+chapter:"Verb tenses",
+question:"If you call me at 8 p.m., I ___ dinner.",
+choices:["will have","will be having","had","have had"],
+answer:1,
+explanation:"Future continuous describes an action that will be in progress at 8 p.m."
+},
+
+{
+chapter:"Verb tenses",
+question:"She ___ the report before the manager asked for it.",
+choices:["had completed","has completed","completes","is completing"],
+answer:0,
+explanation:"The report was completed before another past event, so past perfect is needed."
+},
+
+{
+chapter:"Verb tenses",
+question:"I ___ this book three times.",
+choices:["read","have read","am reading yesterday","had read now"],
+answer:1,
+explanation:"Present perfect expresses repeated experience up to the present."
+},
+
+{
+chapter:"Verb tenses",
+question:"At 7 yesterday evening, they ___ football.",
+choices:["play","played","were playing","have played"],
+answer:2,
+explanation:"Past continuous describes an action in progress at a specific past time."
+},
+
+{
+chapter:"Verb tenses",
+question:"Look at those clouds! It ___.",
+choices:["is going to rain","rains yesterday","has rain","will raining"],
+answer:0,
+explanation:"Be going to is appropriate for a prediction based on present evidence."
+},
+
+
+/* ================= CONDITIONALS 31-38 ================= */
+
+{
+chapter:"Conditionals",
+question:"If I have time, I ___ you tonight.",
+choices:["call","will call","called","would called"],
+answer:1,
+explanation:"First conditional: if + present, will + base verb."
+},
+
+{
+chapter:"Conditionals",
+question:"If I were you, I ___ the offer.",
+choices:["accept","will accept","would accept","accepted"],
+answer:2,
+explanation:"Second conditional is used for an unreal or hypothetical situation."
+},
+
+{
+chapter:"Conditionals",
+question:"If she had studied harder, she ___ the exam.",
+choices:["passes","would pass","would have passed","will have passed"],
+answer:2,
+explanation:"Third conditional: if + past perfect, would have + past participle."
+},
+
+{
+chapter:"Conditionals",
+question:"If water reaches 100°C, it ___.",
+choices:["boiled","boils","will boil only","would boil"],
+answer:1,
+explanation:"This is a zero conditional expressing a general scientific fact."
+},
+
+{
+chapter:"Conditionals",
+question:"Unless you hurry, you ___ the bus.",
+choices:["miss","will miss","would missed","have miss"],
+answer:1,
+explanation:"Unless means if not; the first conditional uses will in the main clause."
+},
+
+{
+chapter:"Conditionals",
+question:"If he ___ earlier, he would not be late now.",
+choices:["left","had left","has left","would leave"],
+answer:1,
+explanation:"This is a mixed conditional: a past condition produces a present result."
+},
+
+{
+chapter:"Conditionals",
+question:"If I had known, I ___ you.",
+choices:["tell","would tell","would have told","will tell"],
+answer:2,
+explanation:"The unreal past result requires would have + past participle."
+},
+
+{
+chapter:"Conditionals",
+question:"Provided that you finish your work, you ___ go home early.",
+choices:["can","could have","had","would have"],
+answer:0,
+explanation:"Provided that means on the condition that; can is correct here."
+},
+
+
+/* ================= MODAL VERBS 39-46 ================= */
+
+{
+chapter:"Modal verbs",
+question:"You ___ wear a seat belt in a car. It is required by law.",
+choices:["might","must","could","would"],
+answer:1,
+explanation:"Must expresses strong obligation."
+},
+
+{
+chapter:"Modal verbs",
+question:"___ I borrow your pen, please?",
+choices:["Must","May","Should","Need"],
+answer:1,
+explanation:"May is a polite way to ask permission."
+},
+
+{
+chapter:"Modal verbs",
+question:"You ___ see a doctor if the pain continues.",
+choices:["should","mustn't","can't","wouldn't"],
+answer:0,
+explanation:"Should expresses advice or recommendation."
+},
+
+{
+chapter:"Modal verbs",
+question:"She ___ be at home; the lights are on.",
+choices:["must","can't","shouldn't","needn't"],
+answer:0,
+explanation:"Must can express a strong logical deduction."
+},
+
+{
+chapter:"Modal verbs",
+question:"He ___ swim when he was five.",
+choices:["can","could","must","shall"],
+answer:1,
+explanation:"Could expresses past ability."
+},
+
+{
+chapter:"Modal verbs",
+question:"You ___ smoke here. It is prohibited.",
+choices:["don't have to","mustn't","might","could"],
+answer:1,
+explanation:"Mustn't expresses prohibition."
+},
+
+{
+chapter:"Modal verbs",
+question:"We ___ have left earlier; the traffic was terrible.",
+choices:["should","should have","mustn't","can"],
+answer:1,
+explanation:"Should have + past participle expresses criticism or regret about the past."
+},
+
+{
+chapter:"Modal verbs",
+question:"He ___ be the person you met; he was abroad that day.",
+choices:["must","can't","may","should"],
+answer:1,
+explanation:"Can't expresses a strong negative deduction."
+},
+
+
+/* ================= PASSIVE VOICE 47-53 ================= */
+
+{
+chapter:"Passive voice",
+question:"The letter ___ yesterday.",
+choices:["sent","was sent","is send","has sending"],
+answer:1,
+explanation:"Past simple passive = was/were + past participle."
+},
+
+{
+chapter:"Passive voice",
+question:"English ___ in many countries.",
+choices:["speaks","is spoken","is speaking","has speak"],
+answer:1,
+explanation:"Present simple passive = am/is/are + past participle."
+},
+
+{
+chapter:"Passive voice",
+question:"The bridge ___ by engineers next year.",
+choices:["will build","will be built","is building","built"],
+answer:1,
+explanation:"Future passive = will be + past participle."
+},
+
+{
+chapter:"Passive voice",
+question:"Someone has stolen my phone. → My phone ___.",
+choices:["has been stolen","has stolen","was stealing","is stolen yesterday"],
+answer:0,
+explanation:"Present perfect passive = has/have been + past participle."
+},
+
+{
+chapter:"Passive voice",
+question:"They are repairing the road. → The road ___.",
+choices:["is repaired","is being repaired","was repaired","has repaired"],
+answer:1,
+explanation:"Present continuous passive = is/are being + past participle."
+},
+
+{
+chapter:"Passive voice",
+question:"People believe that the painting is authentic. Which sentence is correct?",
+choices:[
+"The painting is believed to be authentic.",
+"The painting believes authentic.",
+"The painting was believing authentic.",
+"The painting has believe authentic."
+],
+answer:0,
+explanation:"The correct impersonal passive structure is: The painting is believed to be authentic."
+},
+
+{
+chapter:"Passive voice",
+question:"The manager made the employees work late. The employees ___.",
+choices:[
+"were made to work late",
+"were made work late",
+"made to work late",
+"are making work late"
+],
+answer:0,
+explanation:"After be made in the passive, use to + infinitive."
+},
+
+
+/* ================= RELATIVE PRONOUNS 54-60 ================= */
+
+{
+chapter:"Relative pronouns",
+question:"The woman ___ lives next door is a doctor.",
+choices:["which","who","whose","whom"],
+answer:1,
+explanation:"Who refers to a person functioning as the subject."
+},
+
+{
+chapter:"Relative pronouns",
+question:"The book ___ I bought is excellent.",
+choices:["who","whose","which","where"],
+answer:2,
+explanation:"Which refers to a thing."
+},
+
+{
+chapter:"Relative pronouns",
+question:"The student ___ father is a pilot won the prize.",
+choices:["who","whom","whose","which"],
+answer:2,
+explanation:"Whose expresses possession."
+},
+
+{
+chapter:"Relative pronouns",
+question:"The man to ___ I spoke was very helpful.",
+choices:["who","whom","which","whose"],
+answer:1,
+explanation:"Whom is the formal object pronoun for a person after a preposition."
+},
+
+{
+chapter:"Relative pronouns",
+question:"This is the house ___ I grew up.",
+choices:["where","who","whose","which one"],
+answer:0,
+explanation:"Where refers to a place."
+},
+
+{
+chapter:"Relative pronouns",
+question:"The year ___ we moved was difficult.",
+choices:["when","who","whom","whose"],
+answer:0,
+explanation:"When can refer to a time."
+},
+
+{
+chapter:"Relative pronouns",
+question:"The car, ___ was very old, finally broke down.",
+choices:["who","which","whose","where"],
+answer:1,
+explanation:"Which is used in a non-defining relative clause referring to a thing."
+},
+
+
+/* ================= REPORTED SPEECH 61-66 ================= */
+
+{
+chapter:"Reported speech",
+question:"“I am tired,” she said. → She said that she ___.",
+choices:["is tired","was tired","has tired","will tired"],
+answer:1,
+explanation:"In standard reported speech, the present form normally backshifts to the past."
+},
+
+{
+chapter:"Reported speech",
+question:"“I saw Paul yesterday.” → He said that he ___ Paul the day before.",
+choices:["sees","had seen","has seen","will see"],
+answer:1,
+explanation:"Past simple commonly changes to past perfect in reported speech."
+},
+
+{
+chapter:"Reported speech",
+question:"“I will call you tomorrow.” → She said that she ___ me the next day.",
+choices:["will call","would call","called","has called"],
+answer:1,
+explanation:"Will normally changes to would in reported speech."
+},
+
+{
+chapter:"Reported speech",
+question:"“Can you help me?” he asked. → He asked me if I ___.",
+choices:["can help him","could help him","will help him","helped him now"],
+answer:1,
+explanation:"Can commonly changes to could in reported speech."
+},
+
+{
+chapter:"Reported speech",
+question:"“Where do you live?” → She asked me where I ___.",
+choices:["do live","lived","did live?","have lived now"],
+answer:1,
+explanation:"Reported questions use statement word order: where I lived."
+},
+
+{
+chapter:"Reported speech",
+question:"“Don't touch it.” → He told me ___.",
+choices:["don't touch it","not to touch it","to not touching it","not touch"],
+answer:1,
+explanation:"Tell + object + not to + infinitive is the standard structure."
+},
+
+
+/* ================= QUESTION TAGS 67-72 ================= */
+
+{
+chapter:"Question tags",
+question:"You are ready, ___?",
+choices:["aren't you","are you","isn't it","don't you"],
+answer:0,
+explanation:"A positive statement takes a negative tag."
+},
+
+{
+chapter:"Question tags",
+question:"She doesn't drive, ___?",
+choices:["does she","doesn't she","is she","did she"],
+answer:0,
+explanation:"A negative present simple statement takes a positive tag."
+},
+
+{
+chapter:"Question tags",
+question:"They went home, ___?",
+choices:["didn't they","did they","weren't they","don't they"],
+answer:0,
+explanation:"Past simple positive uses didn't in the tag."
+},
+
+{
+chapter:"Question tags",
+question:"Let's go, ___?",
+choices:["will we","shall we","do we","aren't we"],
+answer:1,
+explanation:"The conventional tag after Let's is shall we?"
+},
+
+{
+chapter:"Question tags",
+question:"Open the window, ___?",
+choices:["will you","do you","aren't you","shall we"],
+answer:0,
+explanation:"Will you? is commonly used after an imperative."
+},
+
+{
+chapter:"Question tags",
+question:"I am late, ___?",
+choices:["am I","aren't I","isn't I","don't I"],
+answer:1,
+explanation:"The standard tag for I am is aren't I?"
+},
+
+
+/* ================= VOCABULARY 73-78 ================= */
+
+{
+chapter:"Vocabulary",
+question:"If a place is “crowded”, it is ___.",
+choices:["empty","full of people","very quiet","dangerous"],
+answer:1,
+explanation:"Crowded means containing many people."
+},
+
+{
+chapter:"Vocabulary",
+question:"Someone who is “reliable” can be ___.",
+choices:["trusted","ignored","avoided","confused"],
+answer:0,
+explanation:"Reliable means dependable or trustworthy."
+},
+
+{
+chapter:"Vocabulary",
+question:"To “postpone” a meeting means to ___.",
+choices:[
+"cancel it forever",
+"move it to a later time",
+"start it early",
+"attend it"
+],
+answer:1,
+explanation:"Postpone means delay until a later time."
+},
+
+{
+chapter:"Vocabulary",
+question:"If a person is “reluctant”, they are ___.",
+choices:[
+"eager",
+"unwilling or hesitant",
+"certain",
+"angry"
+],
+answer:1,
+explanation:"Reluctant means unwilling or hesitant."
+},
+
+{
+chapter:"Vocabulary",
+question:"A “breakthrough” is ___.",
+choices:[
+"a major advance or discovery",
+"a small mistake",
+"a road accident",
+"a long holiday"
+],
+answer:0,
+explanation:"A breakthrough is an important discovery or advance."
+},
+
+{
+chapter:"Vocabulary",
+question:"If two ideas are “contradictory”, they ___.",
+choices:[
+"support each other completely",
+"conflict with each other",
+"are identical",
+"are easy to translate"
+],
+answer:1,
+explanation:"Contradictory ideas conflict with each other."
+},
+
+
+/* ================= WISH 79-83 ================= */
+
+{
+chapter:"Wish",
+question:"I wish I ___ more time. (present situation)",
+choices:["have","had","will have","am having"],
+answer:1,
+explanation:"For a present unreal situation: wish + past simple."
+},
+
+{
+chapter:"Wish",
+question:"She wishes she ___ the truth yesterday.",
+choices:["knows","knew","had known","would know"],
+answer:2,
+explanation:"Regret about a past event uses wish + past perfect."
+},
+
+{
+chapter:"Wish",
+question:"I wish you ___ making so much noise.",
+choices:["stop","would stop","stopped yesterday","had stopped now"],
+answer:1,
+explanation:"Wish + would expresses a desired change in someone's behavior."
+},
+
+{
+chapter:"Wish",
+question:"He wishes he ___ how to speak Japanese.",
+choices:["knows","knew","had known yesterday","will know"],
+answer:1,
+explanation:"For an unreal present ability, use wish + past simple."
+},
+
+{
+chapter:"Wish",
+question:"I wish I had ___ more carefully before I answered.",
+choices:["think","thought","thoughted","thinking"],
+answer:1,
+explanation:"Past perfect is had + past participle: had thought."
+},
+
+
+/* ================= COMPARATIVES 84-88 ================= */
+
+{
+chapter:"Comparatives and superlatives",
+question:"This exercise is ___ than the previous one.",
+choices:["difficult","more difficult","most difficult","the more difficult"],
+answer:1,
+explanation:"Long adjectives generally form the comparative with more."
+},
+
+{
+chapter:"Comparatives and superlatives",
+question:"Mount Everest is one of ___ mountains in the world.",
+choices:["higher","the highest","highest than","the higher"],
+answer:1,
+explanation:"The superlative form is the highest."
+},
+
+{
+chapter:"Comparatives and superlatives",
+question:"My new phone is ___ expensive than my old one.",
+choices:["less","least","the less","little"],
+answer:0,
+explanation:"Less + adjective expresses comparative inferiority."
+},
+
+{
+chapter:"Comparatives and superlatives",
+question:"The sooner we leave, ___ we will arrive.",
+choices:["the earlier","earlier","the earliest","more early"],
+answer:0,
+explanation:"The correct correlative structure is: the sooner..., the earlier..."
+},
+
+{
+chapter:"Comparatives and superlatives",
+question:"Of the three candidates, Ana is ___.",
+choices:[
+"more experienced",
+"the most experienced",
+"most experienced than",
+"the more experienced"
+],
+answer:1,
+explanation:"Among three or more people, use the superlative."
+},
+
+
+/* ================= ARTICLES 89-92 ================= */
+
+{
+chapter:"Articles",
+question:"She bought ___ umbrella because it was raining.",
+choices:["a","an","the","some"],
+answer:1,
+explanation:"Umbrella begins with a vowel sound, so use an."
+},
+
+{
+chapter:"Articles",
+question:"I saw ___ interesting film last night.",
+choices:["a","an","the","no article"],
+answer:1,
+explanation:"Interesting begins with a vowel sound, so use an."
+},
+
+{
+chapter:"Articles",
+question:"___ sun rises in the east.",
+choices:["A","An","The","No article"],
+answer:2,
+explanation:"The sun is a unique known object, so use the."
+},
+
+{
+chapter:"Articles",
+question:"She speaks ___ English fluently.",
+choices:["a","an","the","no article"],
+answer:3,
+explanation:"Languages generally take no article in this structure."
+},
+
+
+/* ================= PREPOSITIONS 93-95 ================= */
+
+{
+chapter:"Prepositions",
+question:"She is interested ___ science.",
+choices:["on","at","in","for"],
+answer:2,
+explanation:"The fixed expression is interested in."
+},
+
+{
+chapter:"Prepositions",
+question:"We arrived ___ the airport at six.",
+choices:["at","to","on","in"],
+answer:0,
+explanation:"We normally say arrive at the airport."
+},
+
+{
+chapter:"Prepositions",
+question:"He has lived here ___ 2021.",
+choices:["for","since","during","from"],
+answer:1,
+explanation:"Since introduces the starting point."
+},
+
+
+/* ================= GERUND / INFINITIVE 96-97 ================= */
+
+{
+chapter:"Gerund and infinitive",
+question:"She enjoys ___ novels.",
+choices:["to read","reading","read","to reading"],
+answer:1,
+explanation:"Enjoy is followed by a gerund."
+},
+
+{
+chapter:"Gerund and infinitive",
+question:"They decided ___ early.",
+choices:["leaving","to leave","leave","left"],
+answer:1,
+explanation:"Decide is followed by to + infinitive."
+},
+
+
+/* ================= PHRASAL VERBS 98 ================= */
+
+{
+chapter:"Phrasal verbs",
+question:"Please ___ the lights before you leave.",
+choices:["turn off","turn into","look after","give up"],
+answer:0,
+explanation:"Turn off means switch something off."
+},
+
+
+/* ================= QUANTIFIERS 99 ================= */
+
+{
+chapter:"Quantifiers",
+question:"There isn't ___ milk left.",
+choices:["many","much","a few","several"],
+answer:1,
+explanation:"Milk is uncountable, so much is correct."
+},
+
+
+/* ================= LINKING WORDS 100 ================= */
+
+{
+chapter:"Linking words",
+question:"He was tired; ___, he continued working.",
+choices:["however","because","so that","unless"],
+answer:0,
+explanation:"However introduces a contrast."
+}
+
+];
+
+
+/* =========================================================
+   VALIDATION
+========================================================= */
+
+if(questions.length !== 100){
+  throw new Error(
+    "The test must contain exactly 100 questions. Found: "
+    + questions.length
+  );
+}
+
+questions.forEach((q,i)=>{
+
+  if(
+    !q.chapter ||
+    !q.question ||
+    !Array.isArray(q.choices) ||
+    q.choices.length !== 4 ||
+    q.answer < 0 ||
+    q.answer > 3
+  ){
+    throw new Error(
+      "Error in question " + (i+1)
+    );
+  }
+
+});
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+let currentQuestion=0;
+
+let answers=new Array(100).fill(null);
+
+let displayedChoices=[];
+
+let questionSeconds=60;
+
+let questionInterval=null;
+
+let readingSeconds=900;
+
+let readingInterval=null;
+
+let globalInterval=null;
+
+let startTime=0;
+
+let testFinished=false;
+
+let candidate="";
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+function formatTime(seconds){
+
+  seconds=Math.max(0,Math.floor(seconds));
+
+  const minutes=Math.floor(seconds/60);
+
+  const secs=seconds%60;
+
+  return String(minutes).padStart(2,"0")
+    +":"
+    +String(secs).padStart(2,"0");
+}
+
+
+function shuffle(array){
+
+  const copy=[...array];
+
+  for(let i=copy.length-1;i>0;i--){
+
+    const j=Math.floor(Math.random()*(i+1));
+
+    [copy[i],copy[j]]
+      =[copy[j],copy[i]];
+  }
+
+  return copy;
+}
+
+
+/* =========================================================
+   START
+========================================================= */
+
+function startTest(){
+
+  candidate=
+    document.getElementById("candidateName")
+    .value.trim();
+
+  if(!candidate){
+    alert("Please enter your full name.");
+    return;
+  }
+
+  document
+    .getElementById("home")
+    .classList.add("hidden");
+
+  document
+    .getElementById("readingSection")
+    .classList.remove("hidden");
+
+  startTime=Date.now();
+
+  startGlobalTimer();
+
+  startReadingTimer();
+}
+
+
+/* =========================================================
+   GLOBAL TIMER
+========================================================= */
+
+function startGlobalTimer(){
+
+  clearInterval(globalInterval);
+
+  globalInterval=setInterval(()=>{
+
+    const elapsed=
+      Math.floor((Date.now()-startTime)/1000);
+
+    document.getElementById("globalTimer")
+      .textContent=formatTime(elapsed);
+
+  },1000);
+}
+
+
+/* =========================================================
+   READING TIMER
+========================================================= */
+
+function startReadingTimer(){
+
+  readingSeconds=900;
+
+  document.getElementById("readingTimer")
+    .textContent=formatTime(readingSeconds);
+
+  clearInterval(readingInterval);
+
+  readingInterval=setInterval(()=>{
+
+    readingSeconds--;
+
+    document.getElementById("readingTimer")
+      .textContent=formatTime(readingSeconds);
+
+    if(readingSeconds<=0){
+
+      clearInterval(readingInterval);
+
+      startQuiz();
+
+    }
+
+  },1000);
+}
+
+
+function skipReading(){
+
+  clearInterval(readingInterval);
+
+  startQuiz();
+}
+
+
+/* =========================================================
+   START QUIZ
+========================================================= */
+
+function startQuiz(){
+
+  document
+    .getElementById("readingSection")
+    .classList.add("hidden");
+
+  document
+    .getElementById("quizSection")
+    .classList.remove("hidden");
+
+  currentQuestion=0;
+
+  showQuestion();
+}
+
+
+/* =========================================================
+   SHOW QUESTION
+========================================================= */
+
+function showQuestion(){
+
+  clearInterval(questionInterval);
+
+  const q=questions[currentQuestion];
+
+  document.getElementById("chapterName")
+    .textContent=q.chapter;
+
+  document.getElementById("questionNumber")
+    .textContent=
+      "Question "
+      +(currentQuestion+1)
+      +"/100";
+
+  document.getElementById("progressBar")
+    .style.width=
+      ((currentQuestion+1)/100*100)+"%";
+
+  document.getElementById("questionText")
+    .textContent=q.question;
+
+  displayedChoices=
+    shuffle(
+      q.choices.map((text,index)=>({
+        text:text,
+        originalIndex:index
+      }))
+    );
+
+  const container=
+    document.getElementById("choices");
+
+  container.innerHTML="";
+
+  displayedChoices.forEach((item,i)=>{
+
+    const button=
+      document.createElement("button");
+
+    button.className="choice";
+
+    button.textContent=
+      String.fromCharCode(65+i)
+      +". "
+      +item.text;
+
+    if(
+      answers[currentQuestion] !== null &&
+      answers[currentQuestion] === item.originalIndex
+    ){
+      button.classList.add("selected");
+    }
+
+    button.onclick=()=>{
+
+      answers[currentQuestion]=
+        item.originalIndex;
+
+      document
+        .querySelectorAll(".choice")
+        .forEach(b=>b.classList.remove("selected"));
+
+      button.classList.add("selected");
+
+    };
+
+    container.appendChild(button);
+
+  });
+
+  document.getElementById("nextButton")
+    .textContent=
+      currentQuestion===99
+      ?"FINISH TEST"
+      :"NEXT";
+
+  questionSeconds=60;
+
+  document.getElementById("questionTimer")
+    .textContent=formatTime(questionSeconds);
+
+  questionInterval=setInterval(()=>{
+
+    questionSeconds--;
+
+    document.getElementById("questionTimer")
+      .textContent=formatTime(questionSeconds);
+
+    if(questionSeconds<=0){
+
+      clearInterval(questionInterval);
+
+      nextQuestion();
+
+    }
+
+  },1000);
+}
+
+
+/* =========================================================
+   NEXT QUESTION
+========================================================= */
+
+function nextQuestion(){
+
+  clearInterval(questionInterval);
+
+  if(currentQuestion<99){
+
+    currentQuestion++;
+
+    showQuestion();
+
+  }else{
+
+    finishTest();
+
+  }
+}
+
+
+/* =========================================================
+   FINISH
+========================================================= */
+
+function finishTest(){
+
+  if(testFinished)return;
+
+  testFinished=true;
+
+  clearInterval(questionInterval);
+  clearInterval(readingInterval);
+  clearInterval(globalInterval);
+
+  document
+    .getElementById("quizSection")
+    .classList.add("hidden");
+
+  showResults();
+}
+
+
+/* =========================================================
+   RESULTS
+========================================================= */
+
+function showResults(){
+
+  let score=0;
+
+  const chapters={};
+
+  questions.forEach((q,i)=>{
+
+    if(!chapters[q.chapter]){
+
+      chapters[q.chapter]={
+        correct:0,
+        total:0
+      };
+
+    }
+
+    chapters[q.chapter].total++;
+
+    if(answers[i]===q.answer){
+
+      score++;
+
+      chapters[q.chapter].correct++;
+
+    }
+
+  });
+
+
+  const percentage=score;
+
+  let html=`
+
+  <h1 class="result-title">
+    TEST COMPLETED
+  </h1>
+
+  <p style="text-align:center">
+    Candidate: <strong>${escapeHTML(candidate)}</strong>
+  </p>
+
+  <div class="score">
+    ${score}/100
+  </div>
+
+  <div class="percentage">
+    ${percentage}% success
+  </div>
+
+  <div class="stats">
+
+    <div class="stat">
+      Correct answers
+      <strong>${score}</strong>
+    </div>
+
+    <div class="stat">
+      Wrong answers
+      <strong>${100-score}</strong>
+    </div>
+
+    <div class="stat">
+      Total time
+      <strong>
+        ${formatTime(
+          Math.floor((Date.now()-startTime)/1000)
+        )}
+      </strong>
+    </div>
+
+  </div>
+
+  <h2>Results by chapter</h2>
+  `;
+
+
+  Object.entries(chapters).forEach(
+    ([chapter,data])=>{
+
+      const percent=
+        Math.round(
+          data.correct/data.total*100
+        );
+
+      html+=`
+
+      <div class="chapter">
+
+        <strong>${chapter}</strong>
+
+        <br>
+
+        ${data.correct}/${data.total}
+        — ${percent}%
+
+      </div>
+
+      `;
+
+    }
+  );
+
+
+  html+=`
+
+  <h2>Detailed corrections</h2>
+  `;
+
+
+  questions.forEach((q,i)=>{
+
+    if(answers[i]!==q.answer){
+
+      const userAnswer=
+        answers[i]===null
+        ?"No answer"
+        :q.choices[answers[i]];
+
+      const correctAnswer=
+        q.choices[q.answer];
+
+      html+=`
+
+      <div class="error">
+
+        <strong>
+          Question ${i+1} — ${q.chapter}
+        </strong>
+
+        <p>
+          ${escapeHTML(q.question)}
+        </p>
+
+        <p class="wrong-answer">
+          Your answer:
+          ${escapeHTML(userAnswer)}
+        </p>
+
+        <p class="correct-answer">
+          Correct answer:
+          ${escapeHTML(correctAnswer)}
+        </p>
+
+        <p>
+          <strong>Explanation:</strong>
+          ${escapeHTML(q.explanation)}
+        </p>
+
+      </div>
+
+      `;
+
+    }
+
+  });
+
+
+  if(score===100){
+
+    html+=`
+
+    <div class="chapter"
+      style="border-color:#10b981;background:#ecfdf5">
+
+      <strong>
+        PERFECT SCORE! 🎉
+      </strong>
+
+      <br><br>
+
+      You answered all 100 questions correctly.
+
+    </div>
+
+    `;
+
+  }
+
+
+  html+=`
+
+  <br>
+
+  <button
+    class="btn primary"
+    onclick="location.reload()">
+    TAKE THE TEST AGAIN
+  </button>
+
+  `;
+
+
+  const result=
+    document.getElementById("resultSection");
+
+  result.innerHTML=html;
+
+  result.classList.remove("hidden");
+}
+
+
+/* =========================================================
+   SECURITY / BASIC ANTI-CHEAT
+========================================================= */
+
+let warningShown=false;
+
+function antiCheatWarning(){
+
+  if(testFinished || warningShown)return;
+
+  warningShown=true;
+
+  alert(
+    "⚠️ Warning: leaving the test page has been detected."
+  );
+
+  setTimeout(()=>{
+    warningShown=false;
+  },2500);
+}
+
+
+document.addEventListener(
+  "visibilitychange",
+  ()=>{
+
+    if(document.hidden){
+
+      antiCheatWarning();
+
+    }
+
+  }
+);
+
+
+window.addEventListener(
+  "beforeunload",
+  event=>{
+
+    if(!testFinished && startTime){
+
+      event.preventDefault();
+
+      event.returnValue="";
+
+    }
+
+  }
+);
+
+
+/* Prevent browser back */
+
+history.pushState(
+  null,
+  "",
+  location.href
+);
+
+window.addEventListener(
+  "popstate",
+  ()=>{
+
+    history.pushState(
+      null,
+      "",
+      location.href
+    );
+
+    antiCheatWarning();
+
+  }
+);
+
+
+/* =========================================================
+   HTML ESCAPE
+========================================================= */
+
+function escapeHTML(value){
+
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+}
+
+
+/* =========================================================
+   KEYBOARD ENTER
+========================================================= */
+
+document.addEventListener(
+  "keydown",
+  event=>{
+
+    if(
+      event.key==="Enter" &&
+      !event.target.matches("input") &&
+      !document
+        .getElementById("quizSection")
+        .classList.contains("hidden")
+    ){
+
+      nextQuestion();
+
+    }
+
+  }
+);
+
+</script>
+
+</body>
+</html>
